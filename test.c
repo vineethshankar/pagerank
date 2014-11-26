@@ -1,11 +1,9 @@
 #include <stdio.h>
-
-// serial implementation of pagerank. four node graph
 main()
 {
 	FILE *fp;
 	int colindex, link,i,j=0,colmatch=0,localsum=0;
-	double a[4][4] = {{0}};
+	int a[4][4] = {{0}};
 	int sum[4] = { 0,0,0,0};
 	fp = fopen("sample.txt", "r");
 	for(i = 0; i<9; i++) {
@@ -28,7 +26,7 @@ main()
 	for(i = 0; i<4; i++) {
 		printf("\n");
 		for(j = 0; j<4; j++) {
-			printf("%f\t",a[i][j]);
+			printf("%d\t",a[i][j]);
 		}
 	}
 	printf("\n");	
@@ -46,7 +44,7 @@ main()
 	for(i = 0; i<4; i++) {
 		printf("\n");
 		for(j=0; j<4; j++) {
-			printf("%f\t", a[i][j]);
+			printf("%d\t", a[i][j]);
 		}
 	}
 

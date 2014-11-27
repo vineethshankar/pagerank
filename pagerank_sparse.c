@@ -17,7 +17,9 @@ main()
 	FILE *fp;
 	int colindex, link,i,j=0,colmatch=0,localsum=0;
 	//double a[4][4] = {{0}};
-	double val[4] = {0};
+	double val[9] = {0}; //there are 9 edges or 9 non zero elements
+	int rowind[9] ={0};
+	int colptr[10] = {1}; //missing  values will be initialized to zero?
 	double prold[4] = {0.25,0.25,0.25,0.25};
 	double prnew[4] = {0.0,0.0,0.0,0.0};
 	double diff[4] = {0.0,0.0,0.0,0.0};
@@ -28,19 +30,22 @@ main()
 	int sum[4] = { 0,0,0,0};
 	fp = fopen("sample.txt", "r");
 	for(i = 0; i<9; i++) {
-		fscanf(fp, "%d %d", &colindex, &link);	
+		fscanf(fp, "%d %d", &colindex, &link);
+		rowind[i] = link + 1;
 		if(colmatch==colindex) {
 			localsum += 1;
 		}
 		else {
 			sum[j] = localsum;
+			colptr[j+1] = colptr[j] + localsum; //index of val where new column starts
 			localsum = 1; //new localsum
 			j += 1;
 			colmatch = colindex; //new column
 		}
-		a[link][colindex] = 1.0;
+		val[i] = 1.0;
 	}
 	sum[j] = localsum; //for the last column
+	colptr[j+1]= 9; //number of non zeros in the matrix
 	fclose(fp);
 	for(i = 0; i<4; i++) {
 		printf("\n");

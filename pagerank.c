@@ -1,6 +1,11 @@
 #include <stdio.h>
 
 // serial implementation of pagerank. four node graph
+// R(t+1) = d M R(t) + (1-d)/N
+// d - damp1, N = 4
+// damp2 - (1-d)/N
+// prnew <- R
+// a <- M
 main()
 {
 	FILE *fp;
@@ -11,7 +16,7 @@ main()
 	double diff[4] = {0.0,0.0,0.0,0.0};
 	double err = 0.0001;
 	double damp1[4] = { 0.85,0.85,0.85,0.85 };
-	double damp2[4] = { 0.15,0.15,0.15,0.15};
+	double damp2[4] = { 0.0375,0.0375,0.0375,0.0375 };
 	double norm;
 	int sum[4] = { 0,0,0,0};
 	fp = fopen("sample.txt", "r");
@@ -64,6 +69,7 @@ main()
 			for(j=0; j<4; j++) {
 				prnew[i] += a[i][j]*prold[j];
 			}
+			prnew[i] = prnew[i]*damp1[i]+damp2[i];
          	}
 		//copying
 		for(i=0; i<4;i++) {
@@ -74,6 +80,6 @@ main()
 	}while(abs(norm)>err);
        //print pagrank vector	
 	for(j = 0; j< 4; j++) {
-		printf("%f\t", damp2[j] + damp1[j]*prnew[j]);
+		printf("%f\t",prnew[j]);
 	}
 }

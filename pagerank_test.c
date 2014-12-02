@@ -16,8 +16,8 @@
 // are in colptr vector
 // READ ABOUT MPI SPARSE MATRIX VECTOR MULTIPLICATION
 
-#define NODES 4
-#define EDGES 9
+#define NODES 6
+#define EDGES 19
 double sqrt(double x);
 int main()
 {       printf("I have started\n");
@@ -35,15 +35,20 @@ int main()
 	
 	double prold[NODES] = {[0 ... NODES-1] = 0.25};
 	double prnew[NODES] = {[0 ... NODES-1] = 0.0};
+	double damp1[NODES] = {[0 ... NODES-1] = 0.85};
+	double damp2[NODES] = {[0 ... NODES-1] = 0.15/NODES};
 	double diff[NODES] = {[0 ... NODES-1] = 0.0};
 	double err = 0.00001;
 	double norm, norm_sq;
 	int sum[NODES] = {[0 ... NODES-1] = 0};
 	printf("initialization complete\n");
 	
-	fp = fopen("sample.txt", "r");
+	fp = fopen("rawdata0.dat", "r");
 	for(i = 0; i<EDGES; i++) {
 		fscanf(fp, "%d %d", &colindex, &link);
+//Do this if node numbers start with zero		
+		colindex = colindex - 1;
+		link = link - 1;
 		rowind[i] = link;
 		if(colmatch==colindex) {
 			localsum += 1;
@@ -109,7 +114,7 @@ int main()
 			}
 		}
 		for(i = 0; i<NODES; i++) {
-			prnew[i] = prnew[i]*0.85+0.0375;
+			prnew[i] = prnew[i]*damp1[i]+damp2[i];
 			printf("%f\t", prnew[i]);
 		}
                 printf("\n");

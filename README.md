@@ -31,6 +31,7 @@ The power iteration consists of repeated iterations of the above computation unt
 Since, a vertex will be connected to only few other vertices, most of the entries in the weighted adjaceny matrix will be zero. The resulting matrix will be very **sparse**. Also, a sizeable webgraph (see [here](http://snap.stanford.edu/data/) for examples) will have tens of thousands of nodes. Hence we will need a technique which can efficiently store these large sparse matrices without running out of memory.
 
 Common [ways](http://netlib.org/linalg/html_templates/node90.html) for storing large sparse matrices are:
+
 1. Compressed row storage (CRS)
 2. Compressed column storage (CCS)
 
@@ -38,3 +39,5 @@ The **CCS** storage technique has been used in this implementation and it consis
 * val - Holds all non zero entries.
 * rowind - Contains the corresponding row indices of the elements in val.
 * colptr - Contains the indices of val array of thos elements which start a new column.
+
+This repository contains two serial implementations of pagerank computation for the datasets data0.dat and data1.dat. Additionally, mpi_data1.c is a parallel implementation of the same in MPI (Message passing interface).

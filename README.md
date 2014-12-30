@@ -1,4 +1,6 @@
-pagerank
+Pagerank computation by power iteration method
 ========
 
-Given a web graph, compute the page rank of each node. Use MPI
+### Task:
+
+Given a webgraph, compute the pagerank of each webpage.

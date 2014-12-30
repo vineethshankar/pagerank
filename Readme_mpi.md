@@ -14,7 +14,7 @@ MPI_Scatterv(val, sendcnts, displs, MPI_DOUBLE, rec_val, sendcnts[rank], MPI_DOU
 ```
 
 **val**, **sendcnts**, **displs** are all arrays. **MPI_DOUBLE** is the type of elements being sent and received.
-What this means is that from process with rank 0, elements from val are being scattered, such that process with rank  1, will receive sendcnts[1], with rank 2 will sendcnts[2] number of elements.. and so on. The received elements are stored in a local rec_val array. 'displs[i]' is the index of sendcnts from which the next set of elements are scattered.
+What this means is that from process with rank 0, elements from val are being scattered, such that process with rank  1, will receive sendcnts[1], with rank 2 will sendcnts[2] number of elements.. and so on. The received elements are stored in a local **rec_val** array. 'displs[i]' is the index of sendcnts from which the next set of elements are scattered.
 
 ```objective-c
 displs[i] = displs[i-1] + sendcnts[i-1]

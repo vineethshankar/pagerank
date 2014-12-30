@@ -24,7 +24,7 @@ where
 * M - weighted adjacencyh matrix
 * N - number of nodes
 
-The power iteration consists of repeated iterations of the above computation until convergence is achieved. The convergence criterion is just the comparison of norms. ||R(t+1) - R(t)|| < error.
+The power iteration consists of repeated iterations of the above computation until convergence is achieved. The convergence criterion is just the comparison of l2 norms. ||R(t+1) - R(t)|| < error.
 
 ## Large graph?
 
@@ -41,3 +41,5 @@ The **CCS** storage technique has been used in this implementation and it consis
 * colptr - Contains the indices of val array of thos elements which start a new column.
 
 This repository contains two serial implementations of pagerank computation for the datasets data0.dat and data1.dat. Additionally, mpi_data1.c is a parallel implementation of the same in MPI (Message passing interface).
+
+A description of the scatter operations done in MPI are given in Readme_mpi.txt

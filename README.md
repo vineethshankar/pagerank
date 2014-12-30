@@ -12,4 +12,5 @@ A webpage can be considered important and thus of a higher rank, if many other p
 Now, matrices can be powerful representations of graphs, allowing for further investigation. Central to the computation of pagerank is the development of a **weighted adjacency matrix**.
 
 From a useful [link](http://www.utdallas.edu/~jwz120030/Teaching/PastCoursesUMBC/M221HS06/ProjectFiles/Adjacency.pdf) from UT Dallas,
->The adjacency matrix for a graph with n vertices is an n×n matrix whose (i,j) entry is 1,if the ith vertex and jth vertex are connected, and 0 if they are not.
+>The adjacency matrix for a graph with n vertices is an n×n matrix whose (i,j) entry is 1,if the ith vertex and jth vertex are connected, and 0 if they are not. In our case, instead of the entry 1 for each edge, the entry will be 1/k where k is the number of outward links from vertex i.
+$ax + b = c$

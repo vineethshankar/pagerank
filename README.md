@@ -7,7 +7,7 @@ Given a webgraph (such as one [here](https://github.com/vineethshankar/pagerank/
 
 ### Basics:
 
-A webpage can be considered important and thus of a higher rank, if many other pages point (link) towards it. Therefore, it is useful to think of a network as a directed graph with the webpages being its nodes or vertices and the links being its edges. See this [page](http://www.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture3/lecture3.html) from Cornell for more information and understanding.
+A webpage can be considered important and of a higher rank, if many other pages point (link) towards it. Therefore, it is useful to think of a network as a directed graph with the webpages being its nodes or vertices and the links being its edges. See this [page](http://www.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture3/lecture3.html) from Cornell for more information and understanding.
 
 Now, matrices can be powerful representations of graphs, allowing for further investigation. Central to the computation of pagerank is the development of a **weighted adjacency matrix**.
 

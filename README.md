@@ -42,4 +42,4 @@ The **CCS** storage technique has been used in this implementation and it consis
 
 This repository contains two serial implementations of pagerank computation for the datasets data0.dat and data1.dat. Additionally, mpi_data1.c is a parallel implementation of the same in MPI (Message passing interface).
 
-A description of the scatter operations done in MPI are given in Readme_mpi.txt
+A description of the scatter operations done in MPI are given in [Readme_mpi.txt](https://github.com/vineethshankar/pagerank/blob/master/Readme_mpi.md).
